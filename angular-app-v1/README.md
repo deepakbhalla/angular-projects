@@ -19,11 +19,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
     In this command, 'servers' is the name of the component which Angular CLI uses to produce below files -
 
-    CREATE src/app/servers/servers.component.html (26 bytes)
-    CREATE src/app/servers/servers.component.spec.ts (635 bytes)
-    CREATE src/app/servers/servers.component.ts (273 bytes)
-    CREATE src/app/servers/servers.component.css (0 bytes)
-    UPDATE src/app/app.module.ts (572 bytes)
+    * CREATE src/app/servers/servers.component.html (26 bytes)
+    * CREATE src/app/servers/servers.component.spec.ts (635 bytes)
+    * CREATE src/app/servers/servers.component.ts (273 bytes)
+    * CREATE src/app/servers/servers.component.css (0 bytes)
+    * UPDATE src/app/app.module.ts (572 bytes)
 
 ## Development server
 
