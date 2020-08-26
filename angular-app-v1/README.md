@@ -13,6 +13,18 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
         "src/styles.css"
     ]
 
+- Add new components using Angular CLI:
+
+    ng generate component servers
+
+    In this command, 'servers' is the name of the component which Angular CLI uses to produce below files -
+
+    CREATE src/app/servers/servers.component.html (26 bytes)
+    CREATE src/app/servers/servers.component.spec.ts (635 bytes)
+    CREATE src/app/servers/servers.component.ts (273 bytes)
+    CREATE src/app/servers/servers.component.css (0 bytes)
+    UPDATE src/app/app.module.ts (572 bytes)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
