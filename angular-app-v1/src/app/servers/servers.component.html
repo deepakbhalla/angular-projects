@@ -1,5 +1,7 @@
-<p>I am in the 'ServersComponent (selector: app-servers)' and 
-    calling 'ServerComponent (seletor: app-server)' twice.</p>
+<!-- Custom Components -->
+<p class="topic-heading">Custom Components</p>
+<p>I am in the 'ServersComponent (selector: app-servers)' and
+  calling 'ServerComponent (seletor: app-server)' twice.</p>
 <ul>
   <li>
     <app-server></app-server>
@@ -8,3 +10,41 @@
     <app-server></app-server>
   </li>
 </ul>
+
+<!-- Property Binding Vs String Interpolation -->
+<p class="topic-heading">Property Binding Vs String Interpolation</p>
+<p>Angular allows to change DOM object by changing propeties values at runtime.</p>
+<p>Class 'ServersComponent' in 'server.component.ts' has a property named 'allowNewServer' which is
+  false by default. Constructor of class enables it after 2 seconds.
+</p>
+<p>This property is used in 'server.component.html' file to dynamically change 'disabled' attribute of
+  'button' element. When page launches, this button would appear as disabled as 'allowNewServer' is false
+  initially. However, after 2 seconds, this button gets enabled dynamically.
+</p>
+<p>Please note that propertyBinding takes [ ] - Square Brackets which Angular understands.</p>
+
+<p><b>Property Binding</b></p>
+<button class="btn btn-primary" [disabled]="!allowNewServer">Add Server</button>
+<br><br>
+
+<p><b>String Interpolation</b></p>
+<p>Value of 'allowNewServer' property set by TypeScript in 'servers.components.ts' is
+  : {{ allowNewServer }}</p>
+
+<!-- EVENT BINDING EXAMLPE -->
+<p class="topic-heading">Event Binding</p>
+
+<p>Event binding allows you to listen for certain events such as keystrokes, mouse movements, clicks, and touches.
+  Angular event binding syntax consists of a target event name within parentheses on the left of an equal sign, and a
+  quoted template statement on the right.
+
+  The following event binding listens for the button's click events, calling the component's onCreateServer() method
+  whenever a click occurs
+  <!-- <button class="btn btn-primary" (click)="onCreateServer()">Add Server</button> -->
+</p>
+
+<div>
+  <button class="btn btn-primary" (click)="onCreateServer()">Add Server</button>
+</div>
+<br>
+<p>{{ serverCreationStatus }}</p>

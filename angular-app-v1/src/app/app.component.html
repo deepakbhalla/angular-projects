@@ -2,11 +2,22 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
-            <h3 class="page-header">I am in the AppComponent</h3>
-            <hr>
+            <h3 class="page-header" style="margin-top: 0px;">Hello, I am AppComponent. Let's learn Angular</h3>
+            <p class="topic-heading">String interpolation</p>
+            <ul>
+                <li>
+                    <p>Server Id<strong> {{ serverId }}</strong> is currently
+                        <strong>{{ getServerStatus() }}</strong> at zone
+                        <strong>{{ serverZone }}</strong>
+                    </p>
+                </li>
+            </ul>
+            <p>Here, server-id, server status and server zone are used as String interpolation</p>
+
             <!-- Call 'ServersComponent' which is our custom component which internally calls 'ServerComponent'-->
             <app-servers></app-servers>
             <hr>
+            <!-- Call 'AlertComponenet' which is our custom component -->
             <alerts></alerts>
         </div>
     </div>
