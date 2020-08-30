@@ -51,4 +51,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 # Project Output
 
-![Image Sample](screenshots/angular-app-v1-output.png)
+![Image Sample](screenshot/angular-app-v1-output.png)
