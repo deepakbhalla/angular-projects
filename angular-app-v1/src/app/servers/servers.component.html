@@ -1,4 +1,4 @@
-<!-- Custom Components -->
+<!-- ****** Custom Components ***** -->
 <p class="topic-heading">Custom Components</p>
 <p>I am in the 'ServersComponent (selector: app-servers)' and
   calling 'ServerComponent (seletor: app-server)' twice.</p>
@@ -11,7 +11,9 @@
   </li>
 </ul>
 
-<!-- Property Binding Vs String Interpolation -->
+<!----------------------------------------------------------------------------------------------------------->
+
+<!-- ***** Property Binding Vs String Interpolation ***** -->
 <p class="topic-heading">Property Binding Vs String Interpolation</p>
 <p>Angular allows to change DOM object by changing propeties values at runtime.</p>
 <p>Class 'ServersComponent' in 'server.component.ts' has a property named 'allowNewServer' which is
@@ -19,9 +21,9 @@
 </p>
 <p>This property is used in 'server.component.html' file to dynamically change 'disabled' attribute of
   'button' element. When page launches, this button would appear as disabled as 'allowNewServer' is false
-  initially. However, after 2 seconds, this button gets enabled dynamically.
+  initially. However, after 5 seconds, this button gets enabled dynamically.
 </p>
-<p>Please note that propertyBinding takes [ ] - Square Brackets which Angular understands.</p>
+<p>- Please note that propertyBinding takes [ ] - Square Brackets which Angular understands.</p>
 
 <p><b>Property Binding</b></p>
 <button class="btn btn-primary" [disabled]="!allowNewServer">Add Server</button>
@@ -31,20 +33,105 @@
 <p>Value of 'allowNewServer' property set by TypeScript in 'servers.components.ts' is
   : {{ allowNewServer }}</p>
 
-<!-- EVENT BINDING EXAMLPE -->
+<!----------------------------------------------------------------------------------------------------------->
+
+<!-- ***** EVENT BINDING EXAMLPE ***** -->
 <p class="topic-heading">Event Binding</p>
 
 <p>Event binding allows you to listen for certain events such as keystrokes, mouse movements, clicks, and touches.
   Angular event binding syntax consists of a target event name within parentheses on the left of an equal sign, and a
   quoted template statement on the right.
-
-  The following event binding listens for the button's click events, calling the component's onCreateServer() method
-  whenever a click occurs
-  <!-- <button class="btn btn-primary" (click)="onCreateServer()">Add Server</button> -->
 </p>
+<p>- Please note that EventBinding takes () - Round Brackets which Angular understands.</p>
 
 <div>
   <button class="btn btn-primary" (click)="onCreateServer()">Add Server</button>
 </div>
 <br>
 <p>{{ serverCreationStatus }}</p>
+
+<!----------------------------------------------------------------------------------------------------------->
+
+<!-- ***** PASSING DATA WITH EVENT BINDING ***** -->
+<p class="topic-heading">Passing Data with Event Binding / Get user input from the $event object / One Way Binding</p>
+<p>User actions such as clicking a link, pushing a button, and entering text raise DOM events. This page explains how to
+  bind those events to component event handlers using the Angular event binding syntax.
+</p>
+<p>You can use Angular event bindings to respond to any DOM event. Many DOM events are triggered by user input. Binding
+  to these events provides a way to get input from the user.
+</p>
+<p>DOM events carry a payload of information that may be useful to the component. This section shows how to bind to the
+  input event of an input box to get the user's input after each keystroke.</p>
+<p>When a user presses a key, the input event occurs, and Angular provides a corresponding DOM event object
+  in the '$event' variable which this code passes as a parameter to the component's onUpdateServerName() method.</p>
+
+<p>In this example, we have set serverName' property in 'servers.Component.ts' file, however it does not appears on page
+  load inside the textbox - as this is a 'One Way Binding'. But when user inputs a value in the input box, then this
+  gets captured in the input event and passed to the ts component which then updates the 'serverName' property and
+  corresponding changes the value on page using property binding in the text below the input box.</p>
+
+<label>Server Name</label>
+<input type="text" class="form-control" (input)="onUpdateServerName($event)">
+<p style="padding: 10px;">{{ serverName }}</p>
+<button class="btn btn-primary">Add Server</button>
+
+<!----------------------------------------------------------------------------------------------------------->
+
+<!-- ***** TWO WAY BINDING ***** -->
+<p><br></p>
+<p class="topic-heading">Two Way Binding [(...)]</p>
+<p>Two-way binding gives your app a way to share data between a component class and its template.</p>
+<p>
+  <b>Basics of two-way binding</b>
+</p>
+<p>Two-way binding does two things:</p>
+<p style="padding-left: 20px;">1. Sets a specific element property.</p>
+<p style="padding-left: 20px;">2. Listens for an element change event.</p>
+<p>
+  Angular offers a special two-way data binding syntax for this purpose, <b>[()]</b>. </p>
+<p>
+  The [()] syntax combines the brackets of property binding, [], with the parentheses of event binding, ().
+</p>
+<p><code>[( )] = BANANA IN A BOX</code></p>
+
+<p><b>FormsModule is Required for Two-Way-Binding!</b></p>
+
+<p>For Two-Way-Binding to work, you need to enable the <b>ngModel</b> directive. This is done by
+  adding the <b>FormsModule</b> to the imports[] array in the AppModule.</p>
+
+<p>Then also need to add the import from @angular/forms in the app.module.ts file:</p>
+<p><code>"import {{ '{' }} FormsModule }{{ '}' }} from '@angular/forms';"</code></p>
+
+<input type="text" class="form-control" [(ngModel)]="serverName">
+<p style="padding: 10px;">{{ serverName }}</p>
+
+<p>In this example note that user input in the box does not get updated in the previous example's input box as it was
+  one way binding which was from HTML -> Typescript. Both the examples are using the same typescript property.
+  In two way binding example, user input sets the type script property but it does not set back input value of previous
+  example of one way binding i.e., one way binding does not work for TYPESRIPT -> HTML.
+</p>
+
+<!----------------------------------------------------------------------------------------------------------->
+
+<!-- ***** COMBINING ALL THE BINDINGS TOGETHER ***** -->
+<p class="topic-heading">Combining All the Data Binding</p>
+<p>So far we have seen above four types of data bindings:</p>
+<ul>
+  <li>1. String Interpolation</li>
+  <li>2. Property Binding</li>
+  <li>3. One Way Binding</li>
+  <li>4. Two Way Binding</li>
+</ul>
+
+<p>Let's see this in action: </p>
+
+<label>Add server region</label>
+<!-- This demonstrates 'Two way binding' : Property Binding + Event Binding -->
+<input type="text" class="form-control" [(ngModel)]="serverRegion">
+<br>
+<!-- This demonstrates One Way Event Binding (Event) and Property Binding (disabled) -->
+<button class="btn btn-primary" (click)="onCreateServerRegion()" [disabled]="!allowNewServer">Add Server</button>
+<!-- This demonstrates String Interpolation -->
+<p style="padding: 5px; margin-top: 10px;">{{ serverCreationStatus }}</p>
+
+<!----------------------------------------------------------------------------------------------------------->

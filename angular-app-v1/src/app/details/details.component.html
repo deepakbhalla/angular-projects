@@ -1,0 +1,28 @@
+<!-- ***** Usecase: Practicing Directives ***** -->
+<p class="topic-heading">Usecase: Practicing Directives</p>
+<p><b>Problem Statement:</b></p>
+<ul>
+  <li>1. Add a button which says 'Display Details'</li>
+  <li>2. Add a paragraph with any content of your choice</li>
+  <li>3. Toggle the display of this paragraph with the button created in the first step</li>
+  <li>4. Log button click in an array and output that array below the paragraph (may be log timestamp or simply an
+    incremental counter)</li>
+  <li>5. Starting at 5th log item, give all future log items a blue background (via ngStlye) and white color (ngClass)
+  </li>
+</ul>
+
+<!-- Solution : Start -->
+
+<button class="btn btn-primary" (click)="onBtnClickToggleParagraph()">{{ btnText }}</button>
+
+<p class="paragraph-text" *ngIf="displayParagraph">
+  This is my secret details. The quick fox jumps over the lazy dog
+</p>
+
+<div *ngFor="let logItem of clickCounterArray; let i = index" 
+  [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'whilte'}"
+  [ngClass]="{white: i >=4 }">
+  <p>{{ logItem }}</p>
+</div>
+
+<!-- Solution : End -->

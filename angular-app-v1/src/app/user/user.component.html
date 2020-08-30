@@ -1,0 +1,125 @@
+<!-- ***** Usecase: Data Binding ***** -->
+<p class="topic-heading">Usecase: Data Binding</p>
+<p><b>Problem Statement:</b></p>
+<ul>
+  <li>1. Add a input field which updates a property (username) via Two-Way Binding</li>
+  <li>2. Output username property via String Interpolation (in a paragraph below)</li>
+  <li>3. Add a button which may only be clicked if username is NOT an empty string</li>
+  <li>Upon click of button, the username should be reset to an empty string</li>
+</ul>
+
+<label>Add Username</label>
+<input class="form-control" type="text" [(ngModel)]="username" (input)="onUsernameInput($event)">
+<p style="padding: 10px;">{{ username }}</p>
+<button class="btn btn-primary" (click)="onAddUsername()" [disabled]=!addUsernameBtn>Add Username</button>
+<p style="padding: 10px;">List of Users: {{ listOfUsers }}</p>
+<br>
+
+<!----------------------------------------------------------------------------------------------------------->
+
+<!-- Directives: Use of ngIf to output data conditionally -->
+<p class="topic-heading">Directives : Using ngIf to output data conditionally</p>
+
+<p>Let's compare this example with previous one which always shows text 'List of Users' even if there are no users
+  added. However this can be controlled using Angular directive to show this conditionally using <b>ngIf directive</b>.
+</p>
+
+<p>If there is no user in the list then 'List of Users' text should not be displayed. This example demonstrates this
+  feature.</p>
+
+<label>Add Username</label>
+<input class="form-control" type="text" [(ngModel)]="username" (input)="onUsernameInput($event)">
+<p style="padding: 10px;">{{ username }}</p>
+<button class="btn btn-primary" (click)="onAddUsername()" [disabled]=!addUsernameBtn>Add Username</button>
+<p *ngIf="userAdded" style="padding: 10px;">List of Users: {{ listOfUsers }}</p>
+<br><br>
+
+<!----------------------------------------------------------------------------------------------------------->
+
+<!-- Directives: Use ng-temlpate as marker in ngIf to show else condition -->
+<p class="topic-heading">Directives : Use ng-temlpate as marker in ngIf to show else condition</p>
+
+<p>There could be a condition to run 'Then' and 'Else' condition also. For this purpose, Angular provides ng-tempate. A
+  shorthand form of the directive, *ngIf="condition", is generally used, provided as an attribute of the anchor element
+  for the inserted template. Angular expands this into a more explicit version, in which the anchor element is contained
+  in an ng-template element.</p>
+
+<p>In this example, when there is no user added, page will show message 'No user exist' else 'List of Users: ...'</p>
+
+<label>Add Username</label>
+<input class="form-control" type="text" [(ngModel)]="username" (input)="onUsernameInput($event)">
+<p style="padding: 10px;">{{ username }}</p>
+<button class="btn btn-primary" (click)="onAddUsername()" [disabled]=!addUsernameBtn>Add Username</button>
+<br><br>
+<p *ngIf="userAdded; then thenUserCondition else elseUserCondition" style="padding: 10px;"></p>
+<ng-template #thenUserCondition>List of Users: {{ listOfUsers }}</ng-template>
+<ng-template #elseUserCondition>No user exist</ng-template>
+<br><br>
+
+<!----------------------------------------------------------------------------------------------------------->
+
+<!-- Directives: Use [ngStyle] to style the elements dynamically -->
+<p class="topic-heading">Directives : Styling elements dynamically using [ngStyle]</p>
+
+<label>Add Username</label>
+<input class="form-control" type="text" [(ngModel)]="username" (input)="onUsernameInput($event)">
+<p style="padding: 10px;">{{ username }}</p>
+<button class="btn btn-primary" (click)="onAddUsername()" [disabled]=!addUsernameBtn>Add Username</button>
+<br><br>
+
+<p *ngIf="userAdded; then thenBlock else elseBlock" [ngStyle]="{backgroundColor: getColor()}"></p>
+
+<ng-template #thenBlock>
+  <p [ngStyle]="{backgroundColor: getColor()}">List of Users: {{ listOfUsers }}</p>
+</ng-template>
+<ng-template #elseBlock>
+  <p [ngStyle]="{backgroundColor: getColor()}">No user exist</p>
+</ng-template>
+
+<br><br>
+
+<!----------------------------------------------------------------------------------------------------------->
+
+<!-- Directives: Use [ngClass] to add classes dynamically -->
+<p class="topic-heading">Directives : Styling elements dynamically using [ngStyle]</p>
+
+<p>In this example ngStyle has been used to apply the style dynamically which is to show 'USER' text's backgroundColor
+  as red if no user has been added else show backgroundColor as green if user has been added. This is dynamically
+  applying the style based upon a condition.</p>
+
+<p>Now, what if you want to apply the class to any element dynamically based upon a condition? Check out this example.
+  We
+  have used same condition to apply a class named 'success' to same p element when user has been added. You can add a
+  user and observe that the color of the USER changes to white which comes from dynamically added class.</p>
+
+<label>Add Username</label>
+<input class="form-control" type="text" [(ngModel)]="username" (input)="onUsernameInput($event)">
+<p style="padding: 10px;">{{ username }}</p>
+<button class="btn btn-primary" (click)="onAddUsername()" [disabled]=!addUsernameBtn>Add Username</button>
+<br><br>
+<p *ngIf="userAdded; then thenBlock1 else elseBlock1" [ngStyle]="{backgroundColor: getColor()}"></p>
+
+<ng-template #thenBlock1>
+  <p [ngStyle]="{backgroundColor: getColor()}" [ngClass]="{success: userAdded === true}" style="padding: 10px; width:
+    auto; margin-top: 10px;">List of Users: {{ listOfUsers }}</p>
+</ng-template>
+<ng-template #elseBlock1>
+  <p [ngStyle]="{backgroundColor: getColor()}" style="padding: 10px; width: 10%; margin-top: 10px;">No user exist</p>
+</ng-template>
+
+<!----------------------------------------------------------------------------------------------------------->
+
+<!-- Directives: Use [ngClass] to list elements -->
+<p class="topic-heading">Directives : Listing elements using [ngFor]</p>
+<label>Add Username</label>
+<input class="form-control" type="text" [(ngModel)]="username" (input)="onUsernameInput($event)">
+<br>
+<button class="btn btn-primary" (click)="onAddUsername()" [disabled]=!addUsernameBtn>Add Username</button>
+<br><br>
+<ul>
+  <li *ngFor="let user of users">
+    {{ user }}
+  </li>
+</ul>
+
+<!----------------------------------------------------------------------------------------------------------->

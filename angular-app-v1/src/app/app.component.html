@@ -4,6 +4,9 @@
         <div class="col-xs-12">
             <h3 class="page-header" style="margin-top: 0px;">Hello, I am AppComponent. Let's learn Angular</h3>
             <p class="topic-heading">String interpolation</p>
+            <p>In Angular, String interpolation is used to display dynamic data on HTML template (at user end). It
+                facilitates you to make changes on component. ts file and fetch data from there to HTML template
+                (component. html file).</p>
             <ul>
                 <li>
                     <p>Server Id<strong> {{ serverId }}</strong> is currently
@@ -12,13 +15,17 @@
                     </p>
                 </li>
             </ul>
-            <p>Here, server-id, server status and server zone are used as String interpolation</p>
+            <p>Here, server-id, server status and server zone are set in the 'app.component.ts' file used accessed on
+                'app.component.html' as String interpolation</p>
 
             <!-- Call 'ServersComponent' which is our custom component which internally calls 'ServerComponent'-->
             <app-servers></app-servers>
-            <hr>
             <!-- Call 'AlertComponenet' which is our custom component -->
             <alerts></alerts>
+            <!-- Call 'AppUser' which is our custom component -->
+            <app-user></app-user>
+            <!-- Call 'DetailsComponent' which is our custom component -->
+            <app-details></app-details>
         </div>
     </div>
 </div>

@@ -1,0 +1,21 @@
+.topic-heading {
+    background-color:#8a8a8a;
+    padding: 5px;
+    color: white;
+}
+
+.white {
+    color: white;
+    padding: 5px; 
+}
+
+.paragraph-text {
+    border-radius: 20px; 
+    width: 50%; 
+    text-align: center; 
+    margin: 10px 0px 10px 0px; 
+    padding: 40px; 
+    border: black; 
+    border-width: thin; 
+    border-style: inset;
+}
