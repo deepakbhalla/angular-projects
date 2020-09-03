@@ -1,4 +1,4 @@
-# This project has solves the below problem using Angular
+# This project solves the below problem using Angular
 
 * Create three new components: GameControl, Odd and Even
 he GameControl Component should have buttons to start and stop the game
