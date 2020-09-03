@@ -94,4 +94,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## List of components created so far
 
-    ![Image Sample](screenshot/list-of-components.png)
+    ![Image Sample](screenshots/list-of-components.png)
