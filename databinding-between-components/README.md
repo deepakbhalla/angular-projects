@@ -1,3 +1,5 @@
+This application demonstrates a very useful example of databinding between the components using input and output events. This way, we can learn how to achieve the communication between different angular components and pass data & events between them.
+
 # This project solves the below problem using Angular
 
 * Create three new components: GameControl, Odd and Even
