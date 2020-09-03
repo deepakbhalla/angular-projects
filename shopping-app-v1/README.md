@@ -66,5 +66,32 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
     * Create this component using CLI command -
 
-        ng g c recipes/recipes-list --skipTests true --spec false
+        ng g c recipes/recipes-list --spec false
 
+4. Create RecipeDetailComponent inside recipes folder
+
+    * Create this component using CLI command -
+
+        ng g c recipes/recipe-detail --spec false
+
+5. Create RecipeItemComponent inside recipes/recipes-item folder
+
+    * Create this component using CLI command -
+
+        ng g c recipes/recipes-list/recipe-item --spec false
+
+6. Create ShoppingListComponent
+
+    * Create this component using CLI command -
+
+        ng g c shopping-list --spec false
+
+7. Create ShoppingEditComponent inside shopping-list folder
+
+    * Create this component using CLI command -
+
+        ng g c shopping-list/shopping-edit --spec false
+
+## List of components created so far
+
+    ![Image Sample](screenshot/list-of-components.png)
