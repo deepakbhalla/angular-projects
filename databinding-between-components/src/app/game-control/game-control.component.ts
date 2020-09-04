@@ -17,6 +17,7 @@ export class GameControlComponent implements OnInit {
   ngOnInit() {
   }
 
+  // On game start, emit 'intervalFired' property
   onStartGame() {
     this.interval = setInterval(() => {
       this.intervalFired.emit(this.lastNumber + 1);
