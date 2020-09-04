@@ -1,12 +1,13 @@
-<!-- Header Component: Start -->
-<app-header></app-header>
-<!-- Header Component: End -->
+<!-- capture the emitted event 'featureSelected' by app-header component here.
+    After capturing the event which emits string (recipe/shopping-list), set a property 'loadedFeature'.
+    Use 'loadedFeature' property to check if recipe or shopping list component to be displayed on the page -->
+<app-header (featureSelected)="onNavigate($event)"></app-header>
 
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <app-recipes></app-recipes>
-            <app-shopping-list></app-shopping-list>
+            <app-recipes *ngIf="loadedFeature === 'recipe'"></app-recipes>
+            <app-shopping-list *ngIf="loadedFeature === 'shopping-list'"></app-shopping-list>
         </div>
     </div>
 </div>
